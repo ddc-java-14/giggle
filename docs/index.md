@@ -7,10 +7,15 @@ This app will take a person's interest in a particular word and associate it wit
 
 * People who like to laugh.
 
-    > A  person who likes giggle alot, I want to be able to laugh according to the word the person is thinking of (_any word_) so that the person is (_to laugh_).
-
+    > A  person who likes giggle a lot, to be able to laugh according to the word the person is thinking of (_any word_) so that the person can  laugh
+  
 ## Functionality
- To laugh according to what the person wants to laugh about. 
+   
+     > Enter a word
+
+       > Read the joke that pops up for that word.
+
+          > Enter a different word and read the joke purtaining to that word.
 
 ## Persistent data
 
