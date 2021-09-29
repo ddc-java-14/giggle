@@ -9,10 +9,12 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 * Someone who really could use a laugh.
 
-  > As a person who likes giggle a lot,I want a joke app, so that I can get a laugh anytime I need it.
+    > As a person who likes giggle a lot,I want a joke app, so that I can get a laugh anytime I need it.
     
 * Anyone who is sad and who could use a picker upper.
-  > As a grieving person that just lost a loved one, I need an easy-to-use humor app so that I can ease some of my pain 
+
+    > As a grieving person that just lost a loved one, I need an easy-to-use humor app so that I can ease some of my pain.
+  
 ## Functionality
    
 * Enter a word
@@ -23,12 +25,12 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 ## Persistent data
 
- * Different jokes. 
+* Different jokes. 
     
 ## Device/external services
 
- * The user will need to access an outside search engine that will lead you to a specific joke.
+* The user will need to access an outside search engine that will lead you to a specific joke.
 
 ## Stretch goals/possible enhancements 
 
- >It could lead you to multiple jokes on the same subject.
+* It could lead you to multiple jokes on the same subject.
