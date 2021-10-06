@@ -9,12 +9,16 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 * Someone who really could use a laugh.
 
-    > As a person who likes giggle a lot,I want a joke app, so that I can get a laugh anytime I need it.
+    > As a person who likes giggle a lot, I want a joke app, so that I can get a laugh anytime I need it.
     
 * Anyone who is sad and who could use a picker upper.
 
     > As a grieving person that just lost a loved one, I need an easy-to-use humor app so that I can ease some of my pain.
-  
+ 
+* An executive at a board meeting needing to break the ice.
+
+    > As an executive who speaks at a lot of meetings, I would like to have a fast an easy joke to begin with. 
+
 ## Functionality
    
 * Enter a word
