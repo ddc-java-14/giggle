@@ -7,7 +7,7 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 ## Intended users
 
-* Someone who really could use a laugh.
+* Someone who really could use a laugh!
 
     > As a person who likes giggle a lot, I want a joke app, so that I can get a laugh anytime I need it.
     
