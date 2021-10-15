@@ -36,11 +36,15 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 ## Persistent data
 
-* Different jokes, that are your favorite. 
+* Different jokes, that are your favorites. 
     
 ## Device/external services
 
-* The user will need to access an outside search engine that will lead you to a specific joke.
+### JokeAPI
+
+* <https://v2.jokeapi.dev/>
+* After the user types in the search term, the app will make request of the service for a randomly selected joke using that search term.
+* If the service is unavailable, the app will still be able to display saved jokes, but not be able to search for new ones.
 
 ## Stretch goals/possible enhancements 
 
