@@ -8,7 +8,7 @@ order: 0
 ## Summary
 
 This app will take a person's interest in a particular word and associate it with a funny joke. 
-When the person clicks on the app, it will automatically ask you for the word of your choosing. When inserted a particular joke will arise. At the same time if the joke arrising so will a picture of someone laughing.
+When the person clicks on the app, it will automatically ask you for the word of your choosing. When inserted a particular joke will arise. At the same time if the joke arising so will a picture of someone laughing.
 
 
 
@@ -36,7 +36,7 @@ When the person clicks on the app, it will automatically ask you for the word of
 
 ## Persistent data
 
-* Different jokes. 
+* Different jokes, that are your favorite. 
     
 ## Device/external services
 
