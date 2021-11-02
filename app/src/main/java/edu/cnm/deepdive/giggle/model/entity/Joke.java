@@ -53,6 +53,61 @@ public class Joke {
   private long userId;
 
 
+  public int getId() {
+    return id;
+  }
 
+  public void setId(int id) {
+    this.id = id;
+  }
 
+  public int getCreated() {
+    return created;
+  }
+
+  public void setCreated(int created) {
+    this.created = created;
+  }
+
+  @NonNull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@NonNull String name) {
+    this.name = name;
+  }
+
+  public int getFavorite_joke() {
+    return favorite_joke;
+  }
+
+  public void setFavorite_joke(int favorite_joke) {
+    this.favorite_joke = favorite_joke;
+  }
+
+  public int getCategory() {
+    return category;
+  }
+
+  public void setCategory(int category) {
+    this.category = category;
+  }
+
+  @NonNull
+  public String getText() {
+    return text;
+  }
+
+  public void setText(@NonNull String text) {
+    this.text = text;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 }

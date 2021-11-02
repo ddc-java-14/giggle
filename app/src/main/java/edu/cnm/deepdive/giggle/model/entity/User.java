@@ -31,4 +31,36 @@ public class User {
 
   @Expose
  private String email;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public int getCreated() {
+    return created;
+  }
+
+  public void setCreated(int created) {
+    this.created = created;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
 }
