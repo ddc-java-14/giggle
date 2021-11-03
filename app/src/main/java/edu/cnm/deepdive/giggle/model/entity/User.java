@@ -7,9 +7,6 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 
 @Entity(
-    indices = {
-      @Index(value = "email", unique = true)
-    },
     tableName = "user")
 
 public class User {
@@ -30,7 +27,8 @@ public class User {
 
 
   @Expose
- private String email;
+  @ColumnInfo(index = true)
+ private String oauth;
 
   public int getId() {
     return id;
@@ -56,11 +54,11 @@ public class User {
     this.name = name;
   }
 
-  public String getEmail() {
-    return email;
+  public String getOauth() {
+    return oauth;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setOauth(String oauth) {
+    this.oauth = oauth;
   }
 }

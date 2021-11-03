@@ -33,19 +33,11 @@ public class Joke {
 
   @NonNull
   @Expose
-  private String name;
+  private String search_word;
 
   @Expose
   @ColumnInfo(index = true)
-  private int favoriteJoke;
-
-  @Expose
-  @ColumnInfo(index = true)
-  private int category;
-
-  @Expose
-  @NonNull
-  private String text;
+  private int content;
 
   @ColumnInfo(name = "user_id", index = true)
   private long userId;
@@ -68,37 +60,12 @@ public class Joke {
   }
 
   @NonNull
-  public String getName() {
-    return name;
+  public String getSearchWord() {
+    return search_word;
   }
 
-  public void setName(@NonNull String name) {
-    this.name = name;
-  }
-
-  public int getFavoriteJoke() {
-    return favoriteJoke;
-  }
-
-  public void setFavoriteJoke(int favoriteJoke) {
-    this.favoriteJoke = favoriteJoke;
-  }
-
-  public int getCategory() {
-    return category;
-  }
-
-  public void setCategory(int category) {
-    this.category = category;
-  }
-
-  @NonNull
-  public String getText() {
-    return text;
-  }
-
-  public void setText(@NonNull String text) {
-    this.text = text;
+  public int getContent() {
+    return content;
   }
 
   public long getUserId() {
