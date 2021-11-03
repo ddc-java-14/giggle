@@ -44,6 +44,6 @@ public interface UserDao {
   @Query("SELECT * FROM user ORDER BY created DESC")
   LiveData<List<User>> selectAll();
 
-  @Query("SELECT * FROM user WHERE user_id = :guessId")
-  LiveData<User> select(long guessId);
+  @Query("SELECT * FROM user WHERE user_id = :userId")
+  LiveData<User> select(long userId);
 }
