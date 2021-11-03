@@ -5,4 +5,4 @@ menu: ERD
 order: 10
 ---
 
-[![ERD](images/erd.png)](pdf/erd.pdf)
+[![ERD](images/erd.svg)](pdf/erd.pdf)

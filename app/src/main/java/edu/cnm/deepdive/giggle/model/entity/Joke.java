@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 
 @Entity(
@@ -31,7 +29,7 @@ public class Joke {
 
   @Expose
   @ColumnInfo(index = true)
-  private int created;
+  private Date created;
 
   @NonNull
   @Expose
@@ -39,7 +37,7 @@ public class Joke {
 
   @Expose
   @ColumnInfo(index = true)
-  private int favorite_joke;
+  private int favoriteJoke;
 
   @Expose
   @ColumnInfo(index = true)
@@ -61,11 +59,11 @@ public class Joke {
     this.id = id;
   }
 
-  public int getCreated() {
+  public Date getCreated() {
     return created;
   }
 
-  public void setCreated(int created) {
+  public void setCreated(Date created) {
     this.created = created;
   }
 
@@ -78,12 +76,12 @@ public class Joke {
     this.name = name;
   }
 
-  public int getFavorite_joke() {
-    return favorite_joke;
+  public int getFavoriteJoke() {
+    return favoriteJoke;
   }
 
-  public void setFavorite_joke(int favorite_joke) {
-    this.favorite_joke = favorite_joke;
+  public void setFavoriteJoke(int favoriteJoke) {
+    this.favoriteJoke = favoriteJoke;
   }
 
   public int getCategory() {
