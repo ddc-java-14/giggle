@@ -60,12 +60,20 @@ public class Joke {
   }
 
   @NonNull
-  public String getSearchWord() {
+  public String getSearch_word() {
     return search_word;
+  }
+
+  public void setSearch_word(@NonNull String search_word) {
+    this.search_word = search_word;
   }
 
   public int getContent() {
     return content;
+  }
+
+  public void setContent(int content) {
+    this.content = content;
   }
 
   public long getUserId() {
