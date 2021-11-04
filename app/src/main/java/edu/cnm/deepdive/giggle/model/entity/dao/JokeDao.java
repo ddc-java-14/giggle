@@ -45,5 +45,5 @@ public interface JokeDao {
   LiveData<List<Joke>> selectAll();
 
   @Query("SELECT * FROM joke WHERE joke_id = :jokeId")
-  LiveData<Joke> select(long jokeId);
+  static LiveData<Joke> select(long jokeId);
 }
