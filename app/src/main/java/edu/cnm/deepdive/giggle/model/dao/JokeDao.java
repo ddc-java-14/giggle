@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.giggle.model.entity.dao;
+package edu.cnm.deepdive.giggle.model.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -45,5 +45,5 @@ public interface JokeDao {
   LiveData<List<Joke>> selectAll();
 
   @Query("SELECT * FROM joke WHERE joke_id = :jokeId")
-  static LiveData<Joke> select(long jokeId);
+  LiveData<Joke> select(long jokeId);
 }

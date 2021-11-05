@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.giggle.model.entity.dao;
+package edu.cnm.deepdive.giggle.model.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

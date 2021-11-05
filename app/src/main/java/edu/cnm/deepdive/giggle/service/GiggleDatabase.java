@@ -8,8 +8,8 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import edu.cnm.deepdive.giggle.model.entity.Joke;
 import edu.cnm.deepdive.giggle.model.entity.User;
-import edu.cnm.deepdive.giggle.model.entity.dao.JokeDao;
-import edu.cnm.deepdive.giggle.model.entity.dao.UserDao;
+import edu.cnm.deepdive.giggle.model.dao.JokeDao;
+import edu.cnm.deepdive.giggle.model.dao.UserDao;
 import edu.cnm.deepdive.giggle.service.GiggleDatabase.Converters;
 import java.util.Date;
 

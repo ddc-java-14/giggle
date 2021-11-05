@@ -24,7 +24,7 @@ public class Joke {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "joke_id")
-  private int id;
+  private long id;
 
 
   @Expose
@@ -33,7 +33,8 @@ public class Joke {
 
   @NonNull
   @Expose
-  private String search_word;
+  @ColumnInfo(name = "search_word",index = true)
+  private String searchWord;
 
   @Expose
   @ColumnInfo(index = true)
@@ -43,11 +44,11 @@ public class Joke {
   private long userId;
 
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 
@@ -60,12 +61,12 @@ public class Joke {
   }
 
   @NonNull
-  public String getSearch_word() {
-    return search_word;
+  public String getSearchWord() {
+    return searchWord;
   }
 
-  public void setSearch_word(@NonNull String search_word) {
-    this.search_word = search_word;
+  public void setSearchWord(@NonNull String searchWord) {
+    this.searchWord = searchWord;
   }
 
   public int getContent() {
