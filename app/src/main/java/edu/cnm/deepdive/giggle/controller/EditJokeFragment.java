@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import edu.cnm.deepdive.giggle.databinding.FragmentEditJokeBinding;
@@ -49,6 +50,14 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
     viewModel = new ViewModelProvider(this).get(JokeViewModel.class);
     if (jokeId != 0) {
       //TODO Set noteId in viewModel and observe viewModel.getNote().
+      viewModel.setJokeId(jokeId);
+      viewModel.getJoke().observe(getViewLifecycleOwner(), new Observer<Joke>() {
+        @Override
+        public void onChanged(Joke joke) {
+          viewModel.save(joke);
+        }
+      });
+
     } else {
       joke = new Joke();
     }
