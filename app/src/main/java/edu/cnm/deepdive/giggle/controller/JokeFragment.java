@@ -8,12 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import edu.cnm.deepdive.giggle.R;
 import edu.cnm.deepdive.giggle.adapter.JokeAdapter;
 import edu.cnm.deepdive.giggle.databinding.FragmentJokeBinding;
-import edu.cnm.deepdive.giggle.model.entity.Joke;
-import edu.cnm.deepdive.giggle.adapter.JokeAdapter;
 import edu.cnm.deepdive.giggle.viewmodel.JokeViewModel;
 
 public class JokeFragment extends Fragment {

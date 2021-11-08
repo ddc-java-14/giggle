@@ -2,6 +2,8 @@ package edu.cnm.deepdive.giggle;
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;
+import edu.cnm.deepdive.giggle.service.GiggleDatabase;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Initializes (in the {@link #onCreate()} method) application-level resources. This class
@@ -14,6 +16,13 @@ public class GiggleApplication extends Application {
   public void onCreate() {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
+    GiggleDatabase.setContext(this);
+    GiggleDatabase
+        .getInstance()
+        .getJokeDao()
+        .delete()
+        .subscribeOn(Schedulers.io())
+        .subscribe();
   }
 
 }
