@@ -28,6 +28,7 @@ public class JokeFragment extends Fragment {
   ) {
 
     binding = FragmentJokeBinding.inflate(inflater, container, false);
+
     binding.addJoke.setOnClickListener((v) -> Navigation
         .findNavController(binding.getRoot())
         .navigate(JokeFragmentDirections.openJoke()));
@@ -40,7 +41,7 @@ public class JokeFragment extends Fragment {
     viewModel = new ViewModelProvider(this).get(JokeViewModel.class);
     viewModel
         .getJokes()
-        .observe(getViewLifecycleOwner(), (notes) -> {
+        .observe(getViewLifecycleOwner(), (jokes) -> {
           JokeAdapter adapter = new JokeAdapter(getContext(),jokes);
           binding.jokes.setAdapter(adapter);
         });

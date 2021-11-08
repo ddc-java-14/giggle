@@ -1,10 +1,31 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+
+
+  <style name="Theme.Giggle" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/primary</item>
+    <item name="colorPrimaryVariant">@color/primary_variant</item>
+    <item name="colorOnPrimary">@color/text_on_primary</item>
+
+    <!-- Secondary brand color. -->
+    <item name="colorSecondary">@color/secondary</item>
+    <item name="colorSecondaryVariant">@color/secondary_variant</item>
+    <item name="colorOnSecondary">@color/text_on_secondary</item>
+
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
   </style>
+
+  <style name="Theme.Giggle.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="Theme.Giggle.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+  <style name="Theme.Giggle.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 </resources>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import edu.cnm.deepdive.giggle.databinding.ItemJokeBinding;
 import edu.cnm.deepdive.giggle.model.entity.Joke;
 import java.text.DateFormat;
 import java.util.List;
@@ -50,9 +51,9 @@ import java.util.List;
 
       private void bind(int position) {
        Joke joke = jokes.get(position);
-        binding.subject.setText(joke.getSubject());
-        binding.updated.setText(dateFormat.format(joke.getUpdated()));
-        binding.text.setText(joke.getText());
+        binding.searchWord.setText(joke.getSearchWord());
+        binding.created.setText(dateFormat.format(joke.getCreated()));
+        binding.content.setText(joke.getContent());
       }
     }
   }

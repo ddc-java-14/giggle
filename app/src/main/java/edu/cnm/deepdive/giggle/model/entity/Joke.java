@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 
 @Entity(
@@ -33,12 +35,18 @@ public class Joke {
 
   @NonNull
   @Expose
-  @ColumnInfo(name = "search_word",index = true)
+  @ColumnInfo(name = "search_word", index = true)
   private String searchWord;
 
+  @NonNull
   @Expose
+  @SerializedName(value = "joke", alternate = {"setup"})
   @ColumnInfo(index = true)
-  private int content;
+  private String content;
+
+  @Expose
+  @Ignore
+  private String delivery;
 
   @ColumnInfo(name = "user_id", index = true)
   private long userId;
@@ -69,12 +77,21 @@ public class Joke {
     this.searchWord = searchWord;
   }
 
-  public int getContent() {
+  @NonNull
+  public String getContent() {
     return content;
   }
 
-  public void setContent(int content) {
+  public void setContent(@NonNull String content) {
     this.content = content;
+  }
+
+  public String getDelivery() {
+    return delivery;
+  }
+
+  public void setDelivery(String delivery) {
+    this.delivery = delivery;
   }
 
   public long getUserId() {

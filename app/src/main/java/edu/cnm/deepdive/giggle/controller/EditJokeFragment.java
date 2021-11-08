@@ -32,12 +32,12 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     binding = FragmentEditJokeBinding.inflate(inflater, container, false);
-    binding.subject.addTextChangedListener(this);
-    binding.text.addTextChangedListener(this);
+    binding.searchWord.addTextChangedListener(this);
+    binding.content.addTextChangedListener(this);
     binding.cancel.setOnClickListener((v) -> dismiss());
     binding.save.setOnClickListener((v) -> {
-      joke.setSubject(binding.subject.getText().toString().trim());
-      joke.setText(binding.text.getText().toString().trim());
+      joke.setSearchWord(binding.searchWord.getText().toString().trim());
+      joke.setContent(binding.content.getText().toString().trim());
       viewModel.save(joke);
     });
     return binding.getRoot();
@@ -76,16 +76,17 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
 
   }
 
+  @SuppressWarnings("ConstantConditions")
   private void checkSubmitConditions() {
-    String subject = binding.subject
+    String searchWord = binding.searchWord
         .getText()
         .toString()
         .trim();
-    String text = binding.text
+    String content = binding.content
         .getText()
         .toString()
         .trim();
-    binding.save.setEnabled(!subject.isEmpty() && !text.isEmpty());
+    binding.save.setEnabled(!searchWord.isEmpty() && !content.isEmpty());
   }
 }
 
