@@ -40,6 +40,7 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
       joke.setSearchWord(binding.searchWord.getText().toString().trim());
       joke.setContent(binding.content.getText().toString().trim());
       viewModel.save(joke);
+      dismiss();
     });
     return binding.getRoot();
   }
@@ -51,11 +52,10 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
     if (jokeId != 0) {
       //TODO Set noteId in viewModel and observe viewModel.getNote().
       viewModel.setJokeId(jokeId);
-      viewModel.getJoke().observe(getViewLifecycleOwner(), new Observer<Joke>() {
-        @Override
-        public void onChanged(Joke joke) {
-          viewModel.save(joke);
-        }
+      viewModel.getJoke().observe(getViewLifecycleOwner(), (joke) -> {
+      this.joke = joke;
+      binding.searchWord.setText(joke.getSearchWord());
+      binding.content.setText(joke.getContent());
       });
 
     } else {

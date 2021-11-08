@@ -49,7 +49,7 @@ public class Joke {
   private String delivery;
 
   @ColumnInfo(name = "user_id", index = true)
-  private long userId;
+  private Long userId; // FIXME Replace with primitive
 
 
   public long getId() {
@@ -94,11 +94,11 @@ public class Joke {
     this.delivery = delivery;
   }
 
-  public long getUserId() {
+  public Long getUserId() {
     return userId;
-  }
+  } // FIXME Replace with primitive
 
-  public void setUserId(long userId) {
+  public void setUserId(Long userId) {
     this.userId = userId;
-  }
+  } //FIXME replace with primitive
 }
