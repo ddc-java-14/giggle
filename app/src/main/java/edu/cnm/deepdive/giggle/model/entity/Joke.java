@@ -38,7 +38,7 @@ public class Joke {
   @ColumnInfo(name = "search_word", index = true)
   private String searchWord;
 
-  @NonNull
+
   @Expose
   @SerializedName(value = "joke", alternate = {"setup"})
   @ColumnInfo(index = true)
@@ -77,12 +77,12 @@ public class Joke {
     this.searchWord = searchWord;
   }
 
-  @NonNull
+
   public String getContent() {
     return content;
   }
 
-  public void setContent(@NonNull String content) {
+  public void setContent(String content) {
     this.content = content;
   }
 

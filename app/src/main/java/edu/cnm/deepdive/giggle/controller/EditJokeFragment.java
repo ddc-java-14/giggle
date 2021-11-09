@@ -34,11 +34,9 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
       Bundle savedInstanceState) {
     binding = FragmentEditJokeBinding.inflate(inflater, container, false);
     binding.searchWord.addTextChangedListener(this);
-    binding.content.addTextChangedListener(this);
     binding.cancel.setOnClickListener((v) -> dismiss());
     binding.save.setOnClickListener((v) -> {
       joke.setSearchWord(binding.searchWord.getText().toString().trim());
-      joke.setContent(binding.content.getText().toString().trim());
       viewModel.save(joke);
       dismiss();
     });
@@ -55,7 +53,6 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
       viewModel.getJoke().observe(getViewLifecycleOwner(), (joke) -> {
       this.joke = joke;
       binding.searchWord.setText(joke.getSearchWord());
-      binding.content.setText(joke.getContent());
       });
 
     } else {
@@ -91,11 +88,7 @@ public class EditJokeFragment extends BottomSheetDialogFragment implements TextW
         .getText()
         .toString()
         .trim();
-    String content = binding.content
-        .getText()
-        .toString()
-        .trim();
-    binding.save.setEnabled(!searchWord.isEmpty() && !content.isEmpty());
+    binding.save.setEnabled(!searchWord.isEmpty());
   }
 }
 

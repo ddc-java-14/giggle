@@ -72,14 +72,6 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent">
 
-      <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/content_hint"
-        android:inputType="textMultiLine"
-        android:maxLines="6"
-        android:minLines="1"/>
 
 
     </com.google.android.material.textfield.TextInputLayout>
