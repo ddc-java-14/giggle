@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.Transformations;
+import edu.cnm.deepdive.giggle.R;
 import edu.cnm.deepdive.giggle.model.entity.Joke;
 import edu.cnm.deepdive.giggle.service.JokeRepository;
 import io.reactivex.disposables.CompositeDisposable;
@@ -50,6 +51,8 @@ public class JokeViewModel  extends AndroidViewModel
   }
 
   public void save(Joke joke) {
+
+    joke.setContent(getApplication().getString(R.string.sample_joke));
     pending.add(
         repository
             .save(joke)
