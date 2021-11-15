@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.giggle.service;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.util.Log;
@@ -9,8 +10,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import edu.cnm.deepdive.giggle.BuildConfig;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.SingleOnSubscribe;
@@ -81,25 +84,23 @@ public class GoogleSignInRepository {
         .observeOn(Schedulers.io());
   }
 
-  public Completable signOut(){
+  public Completable signOut() {
     return Completable
         .create((emitter) ->
             client
                 .signOut()
-                .addOnCompleteListener((ignore) ->{
-                  setAccount(null);
-                  emitter.onComplete();
-
-                })
+                .addOnSuccessListener((ignore) -> emitter.onComplete())
+                .addOnCompleteListener((ignore) -> setAccount(null))
                 .addOnFailureListener(emitter::onError)
 
         )
         .subscribeOn(Schedulers.io());
 
   }
+
   private void setAccount(GoogleSignInAccount account) {
     this.account = account;
-    if(account !=null) {
+    if (account != null) {
       Log.d(getClass().getSimpleName(),
           (account.getIdToken() != null) ? getBearerToken(account) : "(none)");
     }
