@@ -12,4 +12,15 @@ order: 30
 
 ## DAO Interfaces
 
+* [`JokeDao`](https://github.com/ddc-java-14/giggle/blob/main/app/src/main/java/edu/cnm/deepdive/giggle/model/dao/JokeDao.java)
+* [`UserDao`](https://github.com/ddc-java-14/giggle/blob/main/app/src/main/java/edu/cnm/deepdive/giggle/model/dao/UserDao.java)
+
 ## Database Class
+
+* [`Giggle Database`](https://github.com/ddc-java-14/giggle/blob/main/app/src/main/java/edu/cnm/deepdive/giggle/service/GiggleDatabase.java)
+
+
+## Repository Classes
+
+* [`Joke Repository`](https://github.com/ddc-java-14/giggle/blob/main/app/src/main/java/edu/cnm/deepdive/giggle/service/JokeRepository.java)
+* [`User Repository`](https://github.com/ddc-java-14/giggle/blob/main/app/src/main/java/edu/cnm/deepdive/giggle/service/UserRepository.java)
