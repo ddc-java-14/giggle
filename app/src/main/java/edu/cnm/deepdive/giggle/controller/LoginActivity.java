@@ -13,10 +13,12 @@ import edu.cnm.deepdive.giggle.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.giggle.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
+
   private ActivityLoginBinding binding;
   private LoginViewModel viewModel;
   private ActivityResultLauncher<Intent> launcher;
   private boolean silent;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     silent = true;
     viewModel.getAccount().observe(this, this::handleAccount);
     viewModel.getThrowable().observe(this, this::informFailure);
+
   }
 
   private void informFailure(Throwable throwable) {
