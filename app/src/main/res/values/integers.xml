@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="favorite_jokes_pref_max">50</integer>
+  <integer name="favorite_jokes_pref_min">25</integer>
+  <integer name="favorite_jokes_pref_default">40</integer>
+  <integer name="favorite_jokes_pref_increment">1</integer>
+
+  <integer name="audio_pref_min">0</integer>
+  <integer name="audio_pref_max">100</integer>
+  <integer name="audio_pref_default">50</integer>
+  <integer name="audio_pref_increment">10</integer>
+</resources>

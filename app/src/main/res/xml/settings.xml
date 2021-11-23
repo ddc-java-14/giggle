@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <SeekBarPreference
+    android:key="@string/favorite_jokes_pref_key"
+    app:min="@integer/favorite_jokes_pref_min"
+    android:max="@integer/favorite_jokes_pref_max"
+    android:defaultValue="@integer/favorite_jokes_pref_default"
+    app:seekBarIncrement="@integer/favorite_jokes_pref_increment"
+    app:showSeekBarValue="true"
+    android:title="@string/favorite_jokes_pref_title"/>
+
+  <SeekBarPreference
+    android:key="@string/audio_pref_key"
+    app:min="@integer/audio_pref_min"
+    android:max="@integer/audio_pref_max"
+    android:defaultValue="@integer/audio_pref_default"
+    app:seekBarIncrement="@integer/audio_pref_increment"
+    app:showSeekBarValue="true"
+    android:title="@string/audio_pref_title"/>
+
+
+
+</PreferenceScreen>
