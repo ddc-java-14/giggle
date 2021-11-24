@@ -16,6 +16,10 @@ import edu.cnm.deepdive.giggle.service.JokeRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
+
+/**
+ * Gets to data to the controller.
+ */
 public class JokeViewModel  extends AndroidViewModel
     implements LifecycleObserver {
 
@@ -46,10 +50,19 @@ public class JokeViewModel  extends AndroidViewModel
     jokeId.setValue(id);
   }
 
+
+  /**
+   * Gets list o jokes.
+   * @return This returns live data of a list of jokes.
+   */
   public LiveData<List<Joke>> getJokes() {
     return repository.getAll();
   }
 
+  /**
+   * This method saves a joke.
+   * @param joke The joke to be saved.
+   */
   public void save(Joke joke) {
 
     joke.setContent(getApplication().getString(R.string.sample_joke));
