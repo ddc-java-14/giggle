@@ -15,7 +15,7 @@ public class JokeRepository {
   //field
   private final Application context;
   private final JokeDao jokeDao;
-
+  private final WebServiceProxy proxy;
 
   //constructor
   public JokeRepository(Application context) {
@@ -23,6 +23,7 @@ public class JokeRepository {
     jokeDao = GiggleDatabase
         .getInstance()
         .getJokeDao();
+    proxy = WebServiceProxy.getInstance();
   }
 
   public LiveData<Joke> get(long jokeId) {
@@ -59,6 +60,14 @@ public class JokeRepository {
             .delete(joke)
             .ignoreElement()
             .subscribeOn(Schedulers.io());
+  }
+
+  public Single<Joke> search(String word) {
+    return proxy
+        .getJoke(word)
+        .subscribeOn(Schedulers.io());
+
+
   }
 }
 

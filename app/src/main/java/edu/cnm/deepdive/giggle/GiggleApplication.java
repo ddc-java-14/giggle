@@ -4,6 +4,7 @@ import android.app.Application;
 import com.facebook.stetho.Stetho;
 import edu.cnm.deepdive.giggle.service.GiggleDatabase;
 import edu.cnm.deepdive.giggle.service.GoogleSignInRepository;
+import edu.cnm.deepdive.giggle.service.WebServiceProxy;
 import io.reactivex.schedulers.Schedulers;
 
 /**
