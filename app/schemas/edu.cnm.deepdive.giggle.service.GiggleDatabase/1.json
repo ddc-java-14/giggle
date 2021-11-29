@@ -1,0 +1,166 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8ec75e77e9fc2bce1a11fbd49af5924b",
+    "entities": [
+      {
+        "tableName": "user",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `name` TEXT, `oauth` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "oauth",
+            "columnName": "oauth",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_user_created",
+            "unique": false,
+            "columnNames": [
+              "created"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_user_created` ON `${TABLE_NAME}` (`created`)"
+          },
+          {
+            "name": "index_user_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_user_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_user_oauth",
+            "unique": false,
+            "columnNames": [
+              "oauth"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_user_oauth` ON `${TABLE_NAME}` (`oauth`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "joke",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`joke_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER, `search_word` TEXT NOT NULL, `content` TEXT, `user_id` INTEGER, FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "joke_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "searchWord",
+            "columnName": "search_word",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "joke_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_joke_created",
+            "unique": false,
+            "columnNames": [
+              "created"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_joke_created` ON `${TABLE_NAME}` (`created`)"
+          },
+          {
+            "name": "index_joke_search_word",
+            "unique": false,
+            "columnNames": [
+              "search_word"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_joke_search_word` ON `${TABLE_NAME}` (`search_word`)"
+          },
+          {
+            "name": "index_joke_content",
+            "unique": false,
+            "columnNames": [
+              "content"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_joke_content` ON `${TABLE_NAME}` (`content`)"
+          },
+          {
+            "name": "index_joke_user_id",
+            "unique": false,
+            "columnNames": [
+              "user_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_joke_user_id` ON `${TABLE_NAME}` (`user_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "user_id"
+            ],
+            "referencedColumns": [
+              "user_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8ec75e77e9fc2bce1a11fbd49af5924b')"
+    ]
+  }
+}

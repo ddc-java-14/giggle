@@ -1,0 +1,7 @@
+edu.cnm.deepdive.giggle
+edu.cnm.deepdive.giggle.adapter
+edu.cnm.deepdive.giggle.controller
+edu.cnm.deepdive.giggle.model.dao
+edu.cnm.deepdive.giggle.model.entity
+edu.cnm.deepdive.giggle.service
+edu.cnm.deepdive.giggle.viewmodel

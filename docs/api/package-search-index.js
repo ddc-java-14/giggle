@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"edu.cnm.deepdive.giggle"},{"l":"edu.cnm.deepdive.giggle.adapter"},{"l":"edu.cnm.deepdive.giggle.controller"},{"l":"edu.cnm.deepdive.giggle.model.dao"},{"l":"edu.cnm.deepdive.giggle.model.entity"},{"l":"edu.cnm.deepdive.giggle.service"},{"l":"edu.cnm.deepdive.giggle.viewmodel"}]
