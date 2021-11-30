@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.giggle.controller;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import edu.cnm.deepdive.giggle.viewmodel.JokeViewModel;
 
 public class SearchFragment extends Fragment {
 
+  private MediaPlayer mediaPlayer;
   private FragmentSearchBinding binding;
   private JokeViewModel viewModel;
 
@@ -38,5 +40,9 @@ public class SearchFragment extends Fragment {
     viewModel = new ViewModelProvider(this).get(JokeViewModel.class);
     viewModel.getSearchResult().observe(getViewLifecycleOwner(), (joke) ->
         binding.joke.setText(joke.getContent()));
+    mediaPlayer = MediaPlayer.create(getContext(), R.raw.laugh);
+    mediaPlayer.start();
+    mediaPlayer.setOnCompletionListener((ignored) -> mediaPlayer.release());
+
   }
 }
