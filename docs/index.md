@@ -42,7 +42,7 @@ When the person clicks on the app, it will automatically ask you for the word of
 
   * Could have a picture of a person laughing.
   
-  * Sound effect would be laughter coming out of the laughing persons mouth.
+  * Sound effect plays after new joke displays.
   
   * A picture of a cartoon laughing dog icon for the app.
   
