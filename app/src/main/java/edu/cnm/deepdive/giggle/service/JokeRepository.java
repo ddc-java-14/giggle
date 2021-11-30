@@ -65,6 +65,15 @@ public class JokeRepository {
   public Single<Joke> search(String word) {
     return proxy
         .getJoke(word)
+        .map((joke) -> {
+          if (joke.getDelivery() != null && !joke.getDelivery().trim().isEmpty()) {
+            String combined =
+                String.format("%s\n\n%s", joke.getContent().trim(), joke.getDelivery().trim());
+            joke.setContent(combined);
+            joke.setDelivery(null);
+          }
+          return joke;
+        })
         .subscribeOn(Schedulers.io());
 
 

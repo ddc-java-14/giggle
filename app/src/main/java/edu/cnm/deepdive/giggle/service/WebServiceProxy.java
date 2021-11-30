@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor.Level;
 import retrofit2.Call;
 import retrofit2.HttpException;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -46,7 +47,7 @@ public interface WebServiceProxy {
       Retrofit retrofit = new Retrofit.Builder()
 //          .baseUrl("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&contains=")
           .baseUrl("https://v2.jokeapi.dev/joke/")
-
+          .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
           .addConverterFactory(GsonConverterFactory.create(gson))
           .client(client)
           .build();
