@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.giggle.model.entity.Joke;
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
@@ -46,4 +47,9 @@ public interface JokeDao {
 
   @Query("SELECT * FROM joke WHERE joke_id = :jokeId")
   LiveData<Joke> select(long jokeId);
+
+  @Query("SELECT * FROM joke WHERE service_key = :serviceKey")
+  Maybe<Joke> getByServiceKey(long serviceKey);
+
+
 }

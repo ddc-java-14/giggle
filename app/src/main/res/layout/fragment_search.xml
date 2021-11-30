@@ -7,7 +7,18 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   tools:context=".controller.SearchFragment">
 
-  <!-- TODO Add text input layout and text input edit text for the search field. -->
+  <ImageView
+    android:id="@+id/dog"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:src="@drawable/dog"
+    android:scaleType="centerInside"
+    android:visibility="invisible"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:ignore="ContentDescription"/>
 
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/search_word_layout"
@@ -31,8 +42,6 @@
   </com.google.android.material.textfield.TextInputLayout>
 
 
-
-  <!--  TODO Add text to view to display search results-->
   <ImageButton
     android:id="@+id/search"
     android:layout_width="wrap_content"
@@ -62,7 +71,7 @@
     app:layout_constraintTop_toBottomOf="@id/search_word_layout"/>
 
 
-
-  <!--  TODO Add floating action button to mark joke as a favorite-->
+  <!--  TODO Add floating action button with an outline heart to mark joke as a favorite-->
+  <!--  TODO Add floating action button with an filled heart to to indicate that the joke is a favorite and allow the user mark joke as a favorite-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

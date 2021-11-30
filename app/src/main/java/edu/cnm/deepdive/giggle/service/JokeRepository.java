@@ -2,6 +2,7 @@ package edu.cnm.deepdive.giggle.service;
 
 import android.app.Application;
 import androidx.lifecycle.LiveData;
+import edu.cnm.deepdive.giggle.R;
 import edu.cnm.deepdive.giggle.model.dao.JokeDao;
 import edu.cnm.deepdive.giggle.model.entity.Joke;
 import io.reactivex.Completable;
@@ -16,6 +17,7 @@ public class JokeRepository {
   private final Application context;
   private final JokeDao jokeDao;
   private final WebServiceProxy proxy;
+  private final String jokeNotFoundMessage;
 
   //constructor
   public JokeRepository(Application context) {
@@ -24,6 +26,7 @@ public class JokeRepository {
         .getInstance()
         .getJokeDao();
     proxy = WebServiceProxy.getInstance();
+    jokeNotFoundMessage = context.getString(R.string.joke_not_found_message);
   }
 
   public LiveData<Joke> get(long jokeId) {
@@ -66,6 +69,9 @@ public class JokeRepository {
     return proxy
         .getJoke(word)
         .map((joke) -> {
+          if (joke.isError()) {
+            throw new JokeNotFoundException(jokeNotFoundMessage);
+          }
           if (joke.getDelivery() != null && !joke.getDelivery().trim().isEmpty()) {
             String combined =
                 String.format("%s\n\n%s", joke.getContent().trim(), joke.getDelivery().trim());
@@ -74,12 +80,39 @@ public class JokeRepository {
           }
           return joke;
         })
+        .flatMap((joke) -> jokeDao
+            .getByServiceKey(joke.getServiceKey())
+            .map((retrievedJoke) -> {
+              retrievedJoke.setFavorite(true);
+              return retrievedJoke;
+            })
+            .switchIfEmpty(Single.just(joke))
+        )
         .subscribeOn(Schedulers.io());
 
 
   }
+
+  public static class JokeNotFoundException extends Exception {
+
+    public JokeNotFoundException() {
+    }
+
+    public JokeNotFoundException(String message) {
+      super(message);
+    }
+
+    public JokeNotFoundException(String message, Throwable cause) {
+      super(message, cause);
+    }
+
+    public JokeNotFoundException(Throwable cause) {
+      super(cause);
+    }
+
+    public JokeNotFoundException(String message, Throwable cause, boolean enableSuppression,
+        boolean writableStackTrace) {
+      super(message, cause, enableSuppression, writableStackTrace);
+    }
+  }
 }
-
-
-
-

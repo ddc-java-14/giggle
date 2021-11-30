@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -19,14 +20,21 @@ import java.util.Date;
             childColumns = "user_id",
             onDelete = ForeignKey.CASCADE
         )
+    },
+    indices = {
+        @Index(value = "service_key", unique = true)
     }
-
 )
 public class Joke {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "joke_id")
   private long id;
+
+  @Expose
+  @SerializedName("id")
+  @ColumnInfo(name = "service_key")
+  private long serviceKey;
 
 
   @Expose
@@ -48,6 +56,13 @@ public class Joke {
   @Ignore
   private String delivery;
 
+  @Ignore
+  @Expose
+  private boolean error;
+
+  @Ignore
+  private boolean favorite;
+
   @ColumnInfo(name = "user_id", index = true)
   private Long userId; // FIXME Replace with primitive
 
@@ -58,6 +73,14 @@ public class Joke {
 
   public void setId(long id) {
     this.id = id;
+  }
+
+  public long getServiceKey() {
+    return serviceKey;
+  }
+
+  public void setServiceKey(long serviceKey) {
+    this.serviceKey = serviceKey;
   }
 
   public Date getCreated() {
@@ -92,6 +115,22 @@ public class Joke {
 
   public void setDelivery(String delivery) {
     this.delivery = delivery;
+  }
+
+  public boolean isError() {
+    return error;
+  }
+
+  public void setError(boolean error) {
+    this.error = error;
+  }
+
+  public boolean isFavorite() {
+    return favorite;
+  }
+
+  public void setFavorite(boolean favorite) {
+    this.favorite = favorite;
   }
 
   public Long getUserId() {

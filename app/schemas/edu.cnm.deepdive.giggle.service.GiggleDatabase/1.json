@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8ec75e77e9fc2bce1a11fbd49af5924b",
+    "identityHash": "e52cf98b267fc4dcac0348dbd7d04c3f",
     "entities": [
       {
         "tableName": "user",
@@ -69,11 +69,17 @@
       },
       {
         "tableName": "joke",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`joke_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER, `search_word` TEXT NOT NULL, `content` TEXT, `user_id` INTEGER, FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`joke_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `service_key` INTEGER NOT NULL, `created` INTEGER, `search_word` TEXT NOT NULL, `content` TEXT, `user_id` INTEGER, FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "joke_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceKey",
+            "columnName": "service_key",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -109,6 +115,14 @@
           "autoGenerate": true
         },
         "indices": [
+          {
+            "name": "index_joke_service_key",
+            "unique": true,
+            "columnNames": [
+              "service_key"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_joke_service_key` ON `${TABLE_NAME}` (`service_key`)"
+          },
           {
             "name": "index_joke_created",
             "unique": false,
@@ -160,7 +174,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8ec75e77e9fc2bce1a11fbd49af5924b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e52cf98b267fc4dcac0348dbd7d04c3f')"
     ]
   }
 }

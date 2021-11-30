@@ -74,8 +74,7 @@ public class JokeViewModel extends AndroidViewModel
    * @param joke The joke to be saved.
    */
   public void save(Joke joke) {
-
-    joke.setContent(getApplication().getString(R.string.sample_joke));
+    throwable.setValue(null);
     pending.add(
         repository
             .save(joke)
@@ -88,6 +87,7 @@ public class JokeViewModel extends AndroidViewModel
   }
 
   public void delete(Joke joke) {
+    throwable.setValue(null);
     pending.add(
         repository
             .delete(joke)
@@ -100,6 +100,7 @@ public class JokeViewModel extends AndroidViewModel
   }
 
   public void search(String word) {
+    throwable.setValue(null);
     pending.add(
         repository
             .search(word)
