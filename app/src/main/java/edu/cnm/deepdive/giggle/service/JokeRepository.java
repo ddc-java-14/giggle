@@ -13,13 +13,11 @@ import java.util.List;
 
 public class JokeRepository {
 
-  //field
   private final Application context;
   private final JokeDao jokeDao;
   private final WebServiceProxy proxy;
   private final String jokeNotFoundMessage;
 
-  //constructor
   public JokeRepository(Application context) {
     this.context = context;
     jokeDao = GiggleDatabase
