@@ -76,6 +76,7 @@ public class JokeRepository {
             joke.setContent(combined);
             joke.setDelivery(null);
           }
+          joke.setSearchWord(word);
           return joke;
         })
         .flatMap((joke) -> jokeDao

@@ -70,8 +70,24 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toBottomOf="@id/search_word_layout"/>
 
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/unfilled_heart"
+    android:layout_width="64dp"
+    android:layout_height="64dp"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:src="@drawable/ic_baseline_favorite_border_24"
+    android:contentDescription="@string/delete_joke"/>
 
-  <!--  TODO Add floating action button with an outline heart to mark joke as a favorite-->
-  <!--  TODO Add floating action button with an filled heart to to indicate that the joke is a favorite and allow the user mark joke as a favorite-->
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/filled_heart"
+    android:layout_width="64dp"
+    android:layout_height="64dp"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:src="@drawable/ic_baseline_favorite_24"
+    android:contentDescription="@string/save_joke"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@ public class SearchFragment extends Fragment {
   private JokeViewModel viewModel;
   private Joke joke;
 
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -33,11 +34,12 @@ public class SearchFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     binding = FragmentSearchBinding.inflate(inflater, container, false);
+    binding.filledHeart.setVisibility(View.GONE);
+    binding.unfilledHeart.setVisibility(View.GONE);
     binding.search.setOnClickListener(
         (v) -> viewModel.search(binding.searchWord.getText().toString().trim()));
-    // TODO Set up event listeners on controls.
-    //  Listener for the outlined heart button should invoke the save method in the view model.
-    //  Listener for the filled button should invoke the delete method in the view model.
+
+
     return binding.getRoot();
   }
 
@@ -54,12 +56,12 @@ public class SearchFragment extends Fragment {
       binding.dog.setVisibility(View.VISIBLE);
       if (joke.isFavorite()) {
         Log.d(getClass().getSimpleName(), "favorite");
-        // TODO Hide/show floating action buttons as appropriate for a joke that is already a favorite.
-        //  Hide the outlined heart button and show the filled heart.
+        binding.filledHeart.setVisibility(View.VISIBLE);
+
       } else {
         Log.d(getClass().getSimpleName(), "Not a favorite");
-        // TODO Hide/show floating action buttons as appropriate for a joke that is  not already a favorite.
-        //  Hide the filled heart and show the outlined heart.
+        binding.unfilledHeart.setVisibility(View.VISIBLE);
+
       }
     });
     viewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
@@ -72,6 +74,22 @@ public class SearchFragment extends Fragment {
     mediaPlayer = MediaPlayer.create(getContext(), R.raw.laugh);
     mediaPlayer.start();
     mediaPlayer.setOnCompletionListener((ignored) -> mediaPlayer.release());
+    binding.filledHeart.setOnClickListener(
+        (v) -> {
+          viewModel.delete(joke);
+          binding.unfilledHeart.setVisibility(View.VISIBLE);
+          binding.filledHeart.setVisibility(View.GONE);
+        }
+    );
+    binding.unfilledHeart.setOnClickListener(
+        (v) -> {
+          viewModel.save(joke);
+          binding.filledHeart.setVisibility(View.VISIBLE);
+          binding.unfilledHeart.setVisibility(View.GONE);
+        }
+    );
+
+
 
   }
 }
