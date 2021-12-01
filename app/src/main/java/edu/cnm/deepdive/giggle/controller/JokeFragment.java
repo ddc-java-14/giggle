@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import edu.cnm.deepdive.giggle.adapter.JokeAdapter;
 import edu.cnm.deepdive.giggle.databinding.FragmentJokeBinding;
 import edu.cnm.deepdive.giggle.viewmodel.JokeViewModel;
@@ -25,9 +24,6 @@ public class JokeFragment extends Fragment {
 
     binding = FragmentJokeBinding.inflate(inflater, container, false);
 
-    binding.addJoke.setOnClickListener((v) -> Navigation
-        .findNavController(binding.getRoot())
-        .navigate(JokeFragmentDirections.openJoke()));
     return binding.getRoot();
 
   }
@@ -38,7 +34,8 @@ public class JokeFragment extends Fragment {
     viewModel
         .getJokes()
         .observe(getViewLifecycleOwner(), (jokes) -> {
-          JokeAdapter adapter = new JokeAdapter(getContext(),jokes);
+          JokeAdapter adapter = new JokeAdapter(getContext(), jokes,
+              (joke) -> viewModel.delete(joke));
           binding.jokes.setAdapter(adapter);
         });
   }

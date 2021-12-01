@@ -28,4 +28,5 @@
   <string name="joke_not_found_message">No joke found for search term</string>
   <string name="save_joke">Save joke</string>
   <string name="delete_joke">Delete joke</string>
+  <string name="remove_from_favorites">Remove from favorites</string>
 </resources>
