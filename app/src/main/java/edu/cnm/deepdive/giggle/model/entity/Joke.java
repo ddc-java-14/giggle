@@ -64,7 +64,7 @@ public class Joke {
   private boolean favorite;
 
   @ColumnInfo(name = "user_id", index = true)
-  private Long userId; // FIXME Replace with primitive
+  private Long userId;
 
 
   public long getId() {
@@ -135,9 +135,9 @@ public class Joke {
 
   public Long getUserId() {
     return userId;
-  } // FIXME Replace with primitive
+  }
 
   public void setUserId(Long userId) {
     this.userId = userId;
-  } //FIXME replace with primitive
+  }
 }
